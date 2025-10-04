@@ -1,6 +1,6 @@
 {
-  "name": "create-n8n-nodes",
-  "main": "./src/index.js",
+  "name": "n8n-nodes-swaggerpetstore",
+  "main": "./lib/index.js",
   "version": "0.9.2",
   "description": "Generates n8n nodes from OpenAPI 3.0 specs",
   "bin": {
@@ -10,7 +10,11 @@
     "toc": "toc-md README.md README.md",
     "lint": "eslint .",
     "format": "prettier-standard --format",
-    "test": "node bin/create-n8n-nodes.js generate -a test/fixtures/openapi/petstore.yaml -o tmp -t templates/n8n-nodes || exit 0"
+    "clean": "rimraf lib",
+    "build": "tsc -p .",
+    "pretest": "npm run build",
+    "test": "node bin/create-n8n-nodes.js generate -a test/fixtures/openapi/petstore.yaml -o tmp -t templates/n8n-nodes || exit 0",
+    "prepublishOnly": "npm run build"
   },
   "bugs": {
     "url": "https://github.com/theogravity/apifire/issues"
@@ -84,5 +88,11 @@
     "minimatch": "~7.4.3",
     "minimist": "~1.2.8",
     "json5": "~2.2.3"
+  },
+  "n8n": {
+    "nodes": [
+      "dist/nodes/Swaggerpetstore/Swaggerpetstore.node.js"
+    ],
+    "credentials": []
   }
 }

@@ -3,8 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const { Command } = require('commander');
 const packageInfo = require('../package.json');
-const generator = require('../src/generator');
-const merger = require('../src/merge-openapi');
+// Load compiled sources from lib (TypeScript build output)
+const generator = require('../lib/generator');
+const merger = require('../lib/merge-openapi');
 const _ = require('lodash');
 
 const red = text => `\x1b[31m${text}\x1b[0m`;

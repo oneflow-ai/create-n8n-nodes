@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "commonjs",
+    "rootDir": "src",
+    "outDir": "lib",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": false,
+    "noEmitOnError": false
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "examples",
+    "templates",
+    "dist",
+    "lib",
+    "node_modules",
+    "src/p2o.ts"
+  ]
+}
