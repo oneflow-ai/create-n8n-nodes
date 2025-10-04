@@ -1,5 +1,21 @@
 const _ = require('lodash');
-const pino = require('pino');
+let pino;
+try {
+  pino = require('pino');
+} catch (e) {
+  // Fallback lightweight logger if pino is not installed
+  pino = function fallbackPino() {
+    const log = (...args) => console.log(...args);
+    return {
+      trace: log,
+      debug: log,
+      info: log,
+      warn: console.warn.bind(console),
+      error: console.error.bind(console),
+      fatal: console.error.bind(console),
+    };
+  };
+}
 const N8nOperationsCollector = require('./N8nOperationsCollector');
 const N8NResourceParser = require('./N8NResourceParser');
 const N8nOperationParser = require('./N8nOperationParser');

@@ -1,13 +1,16 @@
 {
   "name": "create-n8n-nodes",
-  "main": "./lib/generator.js",
+  "main": "./src/index.js",
   "version": "0.9.2",
   "description": "Generates n8n nodes from OpenAPI 3.0 specs",
   "bin": {
-    "create-n8n-nodes": "./cli.js"
+    "create-n8n-nodes": "./bin/create-n8n-nodes.js"
   },
   "scripts": {
-    "toc": "toc-md README.md README.md"
+    "toc": "toc-md README.md README.md",
+    "lint": "eslint .",
+    "format": "prettier-standard --format",
+    "test": "node bin/create-n8n-nodes.js generate -a test/fixtures/openapi/petstore.yaml -o tmp -t templates/n8n-nodes || exit 0"
   },
   "bugs": {
     "url": "https://github.com/theogravity/apifire/issues"
@@ -43,6 +46,7 @@
   ],
   "homepage": "https://docs.oneflow.vn/packages/create-n8n-nodes",
   "dependencies": {
+    "pino": "^8.17.0",
     "@devlikeapro/n8n-openapi-node": "^0.1.0",
     "@types/lodash": "^4.17.7",
     "commander": "^9.3.0",

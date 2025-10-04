@@ -2,9 +2,9 @@
 const fs = require('fs');
 const path = require('path');
 const { Command } = require('commander');
-const packageInfo = require('./package.json');
-const generator = require('./lib/generator');
-const merger = require('./lib/merge-openapi');
+const packageInfo = require('../package.json');
+const generator = require('../src/generator');
+const merger = require('../src/merge-openapi');
 const _ = require('lodash');
 
 const red = text => `\x1b[31m${text}\x1b[0m`;
@@ -61,7 +61,7 @@ program
       baseDir: process.cwd(),
       output: '.',
       api: './openapi.yml',
-      templates: path.resolve(__dirname, 'templates/n8n-nodes-template')
+      templates: path.resolve(__dirname, '../templates/n8n-nodes')
     };
 
     _.defaultsDeep(mergedOptions, defaultOptions);

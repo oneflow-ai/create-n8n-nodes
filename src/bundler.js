@@ -4,7 +4,6 @@ const http = require('http');
 const https = require('https');
 const YAML = require('js-yaml');
 const RefParser = require('json-schema-ref-parser-alt');
-const SwaggerParser = require('@apidevtools/swagger-parser');
 
 const handleHTTPResponse = (url, res, resolve, reject) => {
   if (res.statusCode >= 400) return reject(`Can't get file ${url}`);
